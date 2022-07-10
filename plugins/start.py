@@ -13,11 +13,11 @@ import datetime
 currentTime = datetime.datetime.now()
 
 if currentTime.hour < 12:
-	wish = "Good morning."
+	wish = "Good Morning."
 elif 12 <= currentTime.hour < 18:
-	wish = 'Good afternoon.'
+	wish = 'Good Afternoon.'
 else:
-	wish = 'Good evening.'
+	wish = 'Good Evening.'
 
 #-------------------------------
 
@@ -30,8 +30,8 @@ async def start(client,message):
 	**Document Or Video** and enter new filename to rename it__
 	""",reply_to_message_id = message.message_id ,  
 	reply_markup=InlineKeyboardMarkup(
-	 [[ InlineKeyboardButton("Support 🇮🇳" ,url="https://t.me/akhilbaiju") ], 
-	[InlineKeyboardButton("Subscribe 🧐", url="https://t.me/akhilbaiju") ]  ]))
+	 [[ InlineKeyboardButton("Telegram" ,url="https://t.me/honeybeemovies") ], 
+	[InlineKeyboardButton("Youtube", url="https://t.me/honeybeemovies") ]  ]))
 
 
 
@@ -65,4 +65,4 @@ async def send_doc(client,message):
        	filename = file.file_name
        	filesize = humanize.naturalsize(file.file_size)
        	fileid = file.file_id
-       	await message.reply_text(f"""__What do you want me to do with this file?__\n**File Name** :- {filename}\n**File Size** :- {filesize}\n**Dc ID** :- {dcid} """,reply_to_message_id = message.message_id,reply_markup = InlineKeyboardMarkup([[ InlineKeyboardButton("📝 Rename",callback_data = "rename"),InlineKeyboardButton("✖️ Cancel",callback_data = "cancel")  ]]))
+       	await message.reply_text(f"""**Name** : ```{filename}```\n**File Size** :- {filesize}\n**Dc ID** :- {dcid} """,reply_to_message_id = message.message_id,reply_markup = InlineKeyboardMarkup([[ InlineKeyboardButton("📝 Rename",callback_data = "rename"),InlineKeyboardButton("✖️ Cancel",callback_data = "cancel")  ]]))
