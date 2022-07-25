@@ -8,13 +8,13 @@ import os
 from PIL import Image
 import time
 
-caption="""**__⚜️ To Join Click here__**
-**__⭐️ @honeybeemovies__**
-**__⭐️ @AmazonPrime_Orginal ✅__**
-**__⭐️ @honeybeemoviesgroup__**
-**__⭐️ @MalluFlix 🧲__**
+ccaption="""\n\n<b><i>⚜️ To Join Click here
+⭐️ @honeybeemovies
+⭐️ @AmazonPrime_Orginal ✅
+⭐️ @honeybeemoviesgroup 
+⭐️ @MalluFlix 🧲
 
-    **__🅷🅾️🅽🅴🆈 🅱️🅴🅴 🅼🅾️🆅🅸🅴🆂__**"""
+    🅷🅾️🅽🅴🆈 🅱️🅴🅴 🅼🅾️🆅🅸🅴🆂 </b></i>"""
 
 
 @Client.on_callback_query(filters.regex('cancel'))
@@ -35,6 +35,13 @@ async def rename(bot,update):
 @Client.on_callback_query(filters.regex("doc"))
 async def doc(bot,update):
      new_name = update.message.text
+
+     ogcap=update.reply_to_message.caption
+     if ogcap==None:
+            newcap=ccaption
+        else:
+            newcap="<b><i>"+str(ogcap)+"</b></i>"+ccaption
+
      name = new_name.split(":-")
      new_filename = name[1]
      file_path = f"downloads/{new_filename}"
@@ -63,7 +70,7 @@ async def doc(bot,update):
      		await ms.edit("```Trying To Upload```")
      		c_time = time.time()
      		try:
-     			await bot.send_document(update.message.chat.id,document = file_path,thumb=ph_path,caption = f"__**{new_filename}**__\n{caption}",progress=progress_for_pyrogram,progress_args=( "```Trying To Uploading```",  ms, c_time   ))
+     			await bot.send_document(update.message.chat.id,document = file_path,thumb=ph_path,caption = newcap,progress=progress_for_pyrogram,progress_args=( "```Trying To Uploading```",  ms, c_time   ))
      			await ms.delete()
      			os.remove(file_path)
      			os.remove(ph_path)
