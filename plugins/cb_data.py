@@ -35,12 +35,11 @@ async def rename(bot,update):
 @Client.on_callback_query(filters.regex("doc"))
 async def doc(bot,update):
      new_name = update.message.text
-
      ogcap=update.reply_to_message.caption
      if ogcap==None:
-            newcap=ccaption
-        else:
-            newcap="<b><i>"+str(ogcap)+"</b></i>"+ccaption
+	newcap=ccaption
+     else:
+	newcap="<b><i>"+str(ogcap)+"</b></i>"+ccaption
 
      name = new_name.split(":-")
      new_filename = name[1]
