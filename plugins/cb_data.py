@@ -37,8 +37,8 @@ async def doc(bot,update):
      new_name = update.message.text
      name = new_name.split(":-")
      new_filename = name[1]
-     print(update)
-     ogcap=update.reply_to_message.caption
+     #print(update)
+     ogcap=update.caption
      if ogcap==None:
           newcap=ccaption
      else:
