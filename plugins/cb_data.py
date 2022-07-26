@@ -38,10 +38,10 @@ async def doc(bot,update):
      name = new_name.split(":-")
      new_filename = name[1]
      ogcap=update.reply_to_message.caption
-        if ogcap==None:
-            newcap=ccaption
-        else:
-            newcap="<b><i>"+str(ogcap)+"</b></i>"+ccaption
+     if ogcap==None:
+	newcap=ccaption
+     else:
+	newcap="<b><i>"+str(ogcap)+"</b></i>"+ccaption
         
      file_path = f"downloads/{new_filename}"
      file = update.message.reply_to_message
