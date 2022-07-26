@@ -8,13 +8,13 @@ import os
 from PIL import Image
 import time
 
-caption="""**__⚜️ To Join Click here__**
-**__⭐️ @honeybeemovies__**
-**__⭐️ @AmazonPrime_Orginal ✅__**
-**__⭐️ @honeybeemoviesgroup__**
-**__⭐️ @MalluFlix 🧲__**
+ccaption = """\n\n<b><i>⚜️ To Join Click here
+⭐️ @honeybeemovies
+⭐️ @AmazonPrime_Orginal ✅
+⭐️ @honeybeemoviesgroup 
+⭐️ @MalluFlix 🧲
 
-    **__🅷🅾️🅽🅴🆈 🅱️🅴🅴 🅼🅾️🆅🅸🅴🆂__**"""
+    🅷🅾️🅽🅴🆈 🅱️🅴🅴 🅼🅾️🆅🅸🅴🆂 </b></i>"""
 
 
 @Client.on_callback_query(filters.regex('cancel'))
@@ -37,6 +37,12 @@ async def doc(bot,update):
      new_name = update.message.text
      name = new_name.split(":-")
      new_filename = name[1]
+     ogcap=update.reply_to_message.caption
+        if ogcap==None:
+            newcap=ccaption
+        else:
+            newcap="<b><i>"+str(ogcap)+"</b></i>"+ccaption
+        
      file_path = f"downloads/{new_filename}"
      file = update.message.reply_to_message
      ms = await update.message.edit("```Trying To Download...```")
