@@ -7,7 +7,7 @@ ccaption = """\n\n<b><i>⚜️ To Join Click here
 
     🅷🅾️🅽🅴🆈 🅱️🅴🅴 🅼🅾️🆅🅸🅴🆂 </b></i>"""
 
-@Client.on_message(filters.group & filters.reply, group=1)
+@Client.on_message(filters.group, group=1)
 async def caption(client, message):
     if message.reply_to_message:
         ogcap=message.reply_to_message.caption
