@@ -24,5 +24,5 @@ async def caption2(client, message):
         if ogcap==None:
             newcap="."+ccaption2
         else:
-            newcap="<b><i>"+str(ogcap)+"</b></i>"+ccaption2
+            newcap="<b><i>"+str(ogcap)+"\n</b></i>"+ccaption2
         await message.copy(message.chat.id, caption=newcap)
