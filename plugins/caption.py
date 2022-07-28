@@ -7,22 +7,22 @@ ccaption = """\n\n<b><i>⚜️ To Join Click here
 
     🅷🅾️🅽🅴🆈 🅱️🅴🅴 🅼🅾️🆅🅸🅴🆂 </b></i>"""
 
-ccaption2 = """\n<b><i>⚜️ Join    @h4hbm</b></i>"""
+ccaption2 = """\n\n<b><i>⚜️ Join    @h4hbm</b></i>"""
 
-@Client.on_message(filters.group([-1001644864422]), group=1)
-async def caption2(client, message):
-    ogcap=message.caption
-    if ogcap==None:
-        newcap=ccaption2
-    else:
-        newcap="<b><i>"+str(ogcap)+"</b></i>"+ccaption2
-    await message.copy(message.chat.id, caption=newcap)
-    
 @Client.on_message(filters.group, group=1)
 async def caption2(client, message):
-    ogcap=message.caption
-    if ogcap==None:
-        newcap=ccaption
+    grp=message.chat.id
+    if grp==-1001574333947:
+        ogcap=message.caption
+        if ogcap==None:
+            newcap=ccaption
+        else:
+            newcap="<b><i>"+str(ogcap)+"</b></i>"+ccaption
+        await message.copy(message.chat.id, caption=newcap)
     else:
-        newcap="<b><i>"+str(ogcap)+"</b></i>"+ccaption
-    await message.copy(message.chat.id, caption=newcap)
+        ogcap=message.caption
+        if ogcap==None:
+            newcap="."+ccaption2
+        else:
+            newcap="<b><i>"+str(ogcap)+"</b></i>"+ccaption2
+        await message.copy(message.chat.id, caption=newcap)
