@@ -96,6 +96,11 @@ async def vid(bot,update):
      new_name = update.message.text
      name = new_name.split(":-")
      new_filename = name[1]
+     ogcap=update.message.reply_to_message.caption
+     if ogcap==None:
+          newcap=ccaption
+     else:
+          newcap="<b><i>"+str(ogcap)+"</b></i>"+ccaption
      file_path = f"downloads/{new_filename}"
      file = update.message.reply_to_message
      ms = await update.message.edit("``` Trying To Download...```")
@@ -126,7 +131,7 @@ async def vid(bot,update):
      		await ms.edit("```Trying To Upload```")
      		c_time = time.time()
      		try:
-     			await bot.send_video(update.message.chat.id,video = file_path,caption = f"__**{new_filename}**__\n{caption}",thumb=ph_path,duration =duration, progress=progress_for_pyrogram,progress_args=( "```Trying To Uploading```",  ms, c_time   ))
+     			await bot.send_video(update.message.chat.id,video = file_path,caption = newcap",thumb=ph_path,duration =duration, progress=progress_for_pyrogram,progress_args=( "```Trying To Uploading```",  ms, c_time   ))
      			await ms.delete()
      			os.remove(file_path)
      			os.remove(ph_path)   				
@@ -139,7 +144,7 @@ async def vid(bot,update):
      		await ms.edit("```Trying To Upload```")
      		c_time = time.time()
      		try:
-     			await bot.send_video(update.message.chat.id,video = file_path,caption = f"__**{new_filename}**__\n{caption}",duration = duration, progress=progress_for_pyrogram,progress_args=( "```Trying To Uploading```",  ms, c_time   ))
+     			await bot.send_video(update.message.chat.id,video = file_path,caption = newcap",duration = duration, progress=progress_for_pyrogram,progress_args=( "```Trying To Uploading```",  ms, c_time   ))
      			await ms.delete()
      			os.remove(file_path)
      		except Exception as e:
